@@ -43,26 +43,3 @@ void	run_builtin(t_struct *mini)
 	if (!ft_strncmp(mini->tokens[0], "unset", 5))
 		ft_unset(mini);
 }
-
-void	ft_exit(t_struct *mini)
-{
-	free_char_array2(mini->commands);
-	if (mini->path)
-		free_char_array(mini->path);
-	free (mini->home);
-	printf("exit\n");
-	exit(0);
-}
-
-void	free_char_array2(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i] != NULL)
-	{
-		free(array[i]);
-		array[i] = NULL;
-		i++;
-	}
-}
